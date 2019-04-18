@@ -49,7 +49,7 @@ save data to /sgn-data/MLG
 ```plaintext
 # NB: use each sshfs mount at least once manually while root so the host's signature is added to the /root/.ssh/known_hosts file
 # Narvi
-ni@narvi.tut.fi:/sgn-data/MLG/nixingyang /home/xingyang/Documents/Narvi fuse.sshfs noauto,x-systemd.automount,_netdev,users,idmap=user,IdentityFile=/home/xingyang/.ssh/RSA,allow_other,reconnect 0 0
+ni@narvi.tut.fi:/sgn-data/MLG/nixingyang /home/xingyang/Documents/Narvi fuse.sshfs noauto,x-systemd.automount,_netdev,users,idmap=user,IdentityFile=/home/xingyang/.ssh/RSA,allow_other,reconnect,follow_symlinks 0 0
 ```
 
 #### Load modules (obsolete)
