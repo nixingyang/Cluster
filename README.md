@@ -27,6 +27,7 @@ conda create --name default python=3
 conda activate default
 conda install cython keras matplotlib opencv scikit-image scikit-learn tensorflow-gpu==1.13.1 (" ".join(sorted("package_list".split(" "))))
 conda list
+conda update --all
 conda deactivate
 ```
 
