@@ -9,6 +9,7 @@
 #SBATCH --time=6-23:59:00
 #SBATCH --partition=gpu
 #SBATCH --gres=gpu:1
+#SBATCH --exclude=meg[10-12]
 
 # These commands will be executed on the compute node:
 
@@ -17,6 +18,6 @@ source ~/.bashrc
 enable_conda
 
 # Finally run your job
-python3 -u train.py --no-convert --train
+python3 -u solution.py
 
 echo "All done!"
