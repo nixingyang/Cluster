@@ -18,7 +18,7 @@ squeue --user "$USER"
 
 #### Get an interactive node (check ~hehu/getGpu.sh)
 ```plaintext
-srun --job-name="$USER"_"$(basename "$PWD")" --ntasks=1 --cpus-per-task=2 --mem=16G --time=0-7:59:00 --partition=gpu --gres=gpu:1 --pty /bin/bash -i
+srun --job-name="$USER"_"$(basename "$PWD")" --ntasks=1 --cpus-per-task=2 --mem=16G --time=0-8:00:00 --partition=gpu --gres=gpu:1 --exclude=meg[10-12] --pty /bin/bash -i
 ```
 
 #### Conda for Python (https://docs.conda.io/projects/conda/en/latest/user-guide/cheatsheet.html)
