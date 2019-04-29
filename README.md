@@ -21,6 +21,11 @@ squeue --user "$USER"
 srun --job-name="$USER"_"$(basename "$PWD")" --ntasks=1 --cpus-per-task=2 --mem=16G --time=0-8:00:00 --partition=gpu --gres=gpu:1 --exclude=meg[10-12] --pty /bin/bash -i
 ```
 
+#### Submit a job in batch mode (check ~hehu/gpuBatch.sh and submit.sh)
+```plaintext
+sbatch --job-name="$USER"_"$(basename "$PWD")" submit.sh
+```
+
 #### Conda for Python (https://docs.conda.io/projects/conda/en/latest/user-guide/cheatsheet.html)
 ```plaintext
 conda create --name default python=3
@@ -29,11 +34,6 @@ conda install cython keras matplotlib opencv scikit-image scikit-learn tensorflo
 conda list
 conda update --all
 conda deactivate
-```
-
-#### Submit a job in batch mode (check ~hehu/gpuBatch.sh and submit.sh)
-```plaintext
-sbatch --job-name="$USER"_"$(basename "$PWD")" submit.sh
 ```
 
 #### Cancel the job
@@ -51,4 +51,36 @@ save data to /sgn-data/MLG
 # NB: use each sshfs mount at least once manually while root so the host's signature is added to the /root/.ssh/known_hosts file
 # Narvi
 ni@narvi.tut.fi:/sgn-data/MLG/nixingyang /home/xingyang/Documents/Narvi fuse.sshfs noauto,x-systemd.automount,_netdev,users,idmap=user,IdentityFile=/home/xingyang/.ssh/RSA,allow_other,reconnect,follow_symlinks 0 0
+```
+
+#### Example ~/.bashrc file
+```plaintext
+# Load key
+load_key () {
+  if [ -z "$SSH_AUTH_SOCK" ] ; then
+    eval `ssh-agent -s`
+    ssh-add ~/.ssh/RSA
+  fi
+}
+
+# Enable conda environment
+enable_conda () {
+  . /home/opt/anaconda3/etc/profile.d/conda.sh
+  conda activate default
+  export PATH=~/.conda/envs/default/bin:$PATH
+}
+
+# Get an interactive node
+narvi_interactive () {
+  srun --job-name="$USER"_"$(basename "$PWD")" --ntasks=1 --cpus-per-task=2 --mem=16G --time=0-8:00:00 --partition=gpu --gres=gpu:1 --exclude=meg[10-12] --pty /bin/bash -i
+}
+
+# Submit a job in batch mode
+narvi_batch () {
+  sbatch --job-name="$USER"_"$(basename "$PWD")" submit.sh
+}
+
+# Models and examples built with TensorFlow
+export TENSORFLOW_MODELS_PATH=~/Storage/Package/tensorflow_models_1.13.0/research
+export PYTHONPATH=$TENSORFLOW_MODELS_PATH:$TENSORFLOW_MODELS_PATH/slim
 ```
