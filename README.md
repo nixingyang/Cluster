@@ -51,10 +51,3 @@ save data to /sgn-data/MLG
 # Narvi
 ni@narvi.tut.fi:/sgn-data/MLG/nixingyang /home/xingyang/Documents/Narvi fuse.sshfs noauto,x-systemd.automount,_netdev,users,idmap=user,IdentityFile=/home/xingyang/.ssh/RSA,allow_other,reconnect,follow_symlinks 0 0
 ```
-
-#### Load modules (obsolete)
-```plaintext
-module list
-module avail (list the available modules)
-module load CUDA/9.0
-```
