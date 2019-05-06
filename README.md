@@ -49,8 +49,8 @@ save data to /sgn-data/MLG
 #### Mount remote directories on demand (https://wiki.archlinux.org/index.php/SSHFS)
 ```plaintext
 # NB: use each sshfs mount at least once manually while root so the host's signature is added to the /root/.ssh/known_hosts file
-# Narvi
-ni@narvi.tut.fi:/sgn-data/MLG/nixingyang /home/xingyang/Documents/Narvi fuse.sshfs noauto,x-systemd.automount,_netdev,users,idmap=user,IdentityFile=/home/xingyang/.ssh/RSA,allow_other,reconnect,follow_symlinks 0 0
+In /etc/fstab: ni@narvi.tut.fi:/sgn-data/MLG/nixingyang /home/xingyang/Documents/Narvi fuse.sshfs noauto,_netdev,users,idmap=user,IdentityFile=/home/xingyang/.ssh/RSA,allow_other,reconnect,follow_symlinks 0 0
+From terminal: sudo mount /home/xingyang/Documents/Narvi
 ```
 
 #### Example ~/.bashrc file
