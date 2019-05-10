@@ -18,7 +18,7 @@ squeue --user "$USER"
 
 #### Get an interactive node (check ~hehu/getGpu.sh)
 ```plaintext
-srun --job-name="$USER"_"$(basename "$PWD")" --ntasks=1 --cpus-per-task=2 --mem=16G --time=0-8:00:00 --partition=gpu --gres=gpu:1 --exclude=meg[10-12] --pty /bin/bash -i
+srun --job-name="$USER"_"$(basename "$PWD")" --ntasks=1 --cpus-per-task=2 --mem=16G --time=0-8:00:00 --partition=gpu --gres=gpu:teslap100:1 --pty /bin/bash -i
 ```
 
 #### Submit a job in batch mode (check ~hehu/gpuBatch.sh and submit.sh)
@@ -83,4 +83,10 @@ narvi_batch () {
 # Models and examples built with TensorFlow
 export TENSORFLOW_MODELS_PATH=~/Storage/Package/tensorflow_models_1.13.0/research
 export PYTHONPATH=$TENSORFLOW_MODELS_PATH:$TENSORFLOW_MODELS_PATH/slim
+```
+
+#### Additional Information
+```plaintext
+tcsc.tau@tuni.fi
+https://wiki.eduuni.fi/display/tuttcsc/GPU+resources
 ```
