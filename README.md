@@ -72,7 +72,7 @@ enable_conda () {
 
 # Get an interactive node
 narvi_interactive () {
-  srun --job-name="$USER"_"$(basename "$PWD")" --ntasks=1 --cpus-per-task=2 --mem=16G --time=0-8:00:00 --partition=gpu --gres=gpu:1 --exclude=meg[10-12] --pty /bin/bash -i
+  srun --job-name="$USER"_"$(basename "$PWD")" --ntasks=1 --cpus-per-task=2 --mem=16G --time=0-8:00:00 --partition=gpu --gres=gpu:teslap100:1 --pty /bin/bash -i
 }
 
 # Submit a job in batch mode
