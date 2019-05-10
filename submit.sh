@@ -8,8 +8,8 @@
 #SBATCH --mem=32G
 #SBATCH --time=6-23:59:00
 #SBATCH --partition=gpu
-#SBATCH --gres=gpu:1
-#SBATCH --exclude=meg[10-12]
+#SBATCH --gres=gpu:teslav100:1
+#SBATCH --constraint=gpumem_32
 
 # These commands will be executed on the compute node:
 
