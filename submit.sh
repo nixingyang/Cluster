@@ -5,7 +5,7 @@
 #SBATCH --cpus-per-task=4
 
 # Allocate memory, time quota and GPU resource
-#SBATCH --mem=32G
+#SBATCH --mem=60G
 #SBATCH --time=6-23:59:00
 #SBATCH --partition=gpu
 #SBATCH --gres=gpu:teslav100:1
