@@ -85,8 +85,10 @@ export TENSORFLOW_MODELS_PATH=~/Storage/Package/tensorflow_models_1.13.0/researc
 export PYTHONPATH=$TENSORFLOW_MODELS_PATH:$TENSORFLOW_MODELS_PATH/slim
 ```
 
-#### Additional Information
-```plaintext
-tcsc.tau@tuni.fi
-https://wiki.eduuni.fi/display/tuttcsc/GPU+resources
-```
+#### Additional Information (tcsc.tau@tuni.fi and https://wiki.eduuni.fi/display/tuttcsc/GPU+resources)
+| GPU Type | GPUs Per Node (* Node Amount) | CPUs Per Node | RAM Per Node |
+| - | - | - | - |
+| Tesla P100 PCIe 12GB | 4 (* 6) | 20 | 251G |
+| Tesla P100 PCIe 16GB | 4 (* 2) | 20 | 251G |
+| Tesla V100 PCIe 16GB | 4 (* 2) | 24 | 376G |
+| Tesla V100 PCIe 32GB | 4 (* 2) | 24 | 754G |
