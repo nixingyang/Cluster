@@ -2,7 +2,7 @@
 
 # Allocate CPU resource
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=4
+#SBATCH --cpus-per-task=5
 
 # Allocate memory, time quota and GPU resource
 #SBATCH --mem=60G

@@ -18,7 +18,7 @@ squeue --user "$USER"
 
 #### Get an interactive node (check ~hehu/getGpu.sh)
 ```plaintext
-srun --job-name="$USER"_"$(basename "$PWD")" --ntasks=1 --cpus-per-task=2 --mem=60G --time=0-8:00:00 --partition=gpu --gres=gpu:teslap100:1 --pty /bin/bash -i
+srun --job-name="$USER"_"$(basename "$PWD")" --ntasks=1 --cpus-per-task=5 --mem=60G --time=0-8:00:00 --partition=gpu --gres=gpu:teslap100:1 --pty /bin/bash -i
 ```
 
 #### Submit a job in batch mode (check ~hehu/gpuBatch.sh and submit.sh)
@@ -72,7 +72,7 @@ enable_conda () {
 
 # Get an interactive node
 narvi_interactive () {
-  srun --job-name="$USER"_"$(basename "$PWD")" --ntasks=1 --cpus-per-task=2 --mem=60G --time=0-8:00:00 --partition=gpu --gres=gpu:teslap100:1 --pty /bin/bash -i
+  srun --job-name="$USER"_"$(basename "$PWD")" --ntasks=1 --cpus-per-task=5 --mem=60G --time=0-8:00:00 --partition=gpu --gres=gpu:teslap100:1 --pty /bin/bash -i
 }
 
 # Submit a job in batch mode
