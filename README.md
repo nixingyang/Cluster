@@ -28,12 +28,17 @@ sbatch --job-name="$USER"_"$(basename "$PWD")" submit.sh
 
 #### Conda for Python (https://docs.conda.io/projects/conda/en/latest/user-guide/cheatsheet.html)
 ```plaintext
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh
+conda config --set auto_activate_base false
 conda create --name default python=3
 conda activate default
-conda install cython keras matplotlib opencv scikit-image scikit-learn tensorflow-gpu==1.13.1 (" ".join(sorted("package_list".split(" "))))
+conda install keras matplotlib pydot scikit-image scikit-learn tensorflow-gpu (" ".join(sorted("package_list".split(" "))))
 conda list
 conda update --all
+conda update -n base -c defaults conda
 conda deactivate
+pip install opencv-python
 ```
 
 #### Cancel the job
@@ -55,19 +60,36 @@ From terminal: sudo mount /home/xingyang/Documents/Narvi
 
 #### Example ~/.bashrc file
 ```plaintext
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/ni/.miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/ni/.miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/ni/.miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/ni/.miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+# Enable conda environment
+enable_conda () {
+  conda activate default
+}
+
+# Models and examples built with TensorFlow
+export TENSORFLOW_MODELS_PATH=/sgn-data/MLG/nixingyang/Package/tensorflow_models_1.13.0/research
+export PYTHONPATH=$TENSORFLOW_MODELS_PATH:$TENSORFLOW_MODELS_PATH/slim
+
 # Load key
 load_key () {
   if [ -z "$SSH_AUTH_SOCK" ] ; then
     eval `ssh-agent -s`
-    ssh-add ~/.ssh/RSA
   fi
-}
-
-# Enable conda environment
-enable_conda () {
-  . /home/opt/anaconda3/etc/profile.d/conda.sh
-  conda activate default
-  export PATH=~/.conda/envs/default/bin:$PATH
+  ssh-add ~/.ssh/RSA
 }
 
 # Get an interactive node
@@ -80,9 +102,11 @@ narvi_batch () {
   sbatch --job-name="$USER"_"$(basename "$PWD")" submit.sh
 }
 
-# Models and examples built with TensorFlow
-export TENSORFLOW_MODELS_PATH=~/Storage/Package/tensorflow_models_1.13.0/research
-export PYTHONPATH=$TENSORFLOW_MODELS_PATH:$TENSORFLOW_MODELS_PATH/slim
+# 7-Zip
+export PATH=/sgn-data/MLG/nixingyang/Package/p7zip_16.02/bin:$PATH
+
+# gdrive
+export PATH=/sgn-data/MLG/nixingyang/Package/gdrive_2.1.0:$PATH
 ```
 
 #### Additional Information (tcsc.tau@tuni.fi and https://wiki.eduuni.fi/display/tuttcsc/GPU+resources)
