@@ -26,6 +26,15 @@ srun --job-name="$USER"_"$(basename "$PWD")" --ntasks=1 --cpus-per-task=5 --mem=
 sbatch --job-name="$USER"_"$(basename "$PWD")" submit.sh
 ```
 
+#### Storage
+```plaintext
+Save everything to /sgn-data/MLG and avoid using home directory.
+cd /sgn-data/MLG/nixingyang/Package/cache
+mkdir torch keras
+ln -s /sgn-data/MLG/nixingyang/Package/cache/torch /home/ni/.cache/torch
+ln -s /sgn-data/MLG/nixingyang/Package/cache/keras /home/ni/.keras
+```
+
 #### Conda for Python (https://docs.conda.io/projects/conda/en/latest/user-guide/cheatsheet.html)
 ```plaintext
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
@@ -46,11 +55,6 @@ pip install opencv-python
 scancel --user "$USER"
 ```
 
-#### Storage
-```plaintext
-save data to /sgn-data/MLG
-```
-
 #### Mount remote directories on demand (https://wiki.archlinux.org/index.php/SSHFS)
 ```plaintext
 # NB: use each sshfs mount at least once manually while root so the host's signature is added to the /root/.ssh/known_hosts file
@@ -62,14 +66,14 @@ From terminal: sudo mount /home/xingyang/Documents/Narvi
 ```plaintext
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/ni/.miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/sgn-data/MLG/nixingyang/Package/miniconda/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/ni/.miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/ni/.miniconda3/etc/profile.d/conda.sh"
+    if [ -f "/sgn-data/MLG/nixingyang/Package/miniconda/etc/profile.d/conda.sh" ]; then
+        . "/sgn-data/MLG/nixingyang/Package/miniconda/etc/profile.d/conda.sh"
     else
-        export PATH="/home/ni/.miniconda3/bin:$PATH"
+        export PATH="/sgn-data/MLG/nixingyang/Package/miniconda/bin:$PATH"
     fi
 fi
 unset __conda_setup
