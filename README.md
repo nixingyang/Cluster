@@ -43,11 +43,17 @@ conda config --set auto_activate_base false
 conda create --name default python=3
 conda activate default
 conda install keras matplotlib pydot scikit-image scikit-learn tensorflow-gpu (" ".join(sorted("package_list".split(" "))))
+conda install coverage pylint
+conda install -c pytorch cudatoolkit=10.0 ignite pytorch torchvision
+conda install -c conda-forge yacs youtube-dl
+pip install albumentations
+pip uninstall opencv-python-headless
+pip install opencv-python
 conda list
 conda update --all
 conda update -n base -c defaults conda
+conda clean --all
 conda deactivate
-pip install opencv-python
 ```
 
 #### Cancel the job
