@@ -68,6 +68,17 @@ From terminal: sudo mount /home/xingyang/Documents/Narvi
 
 #### Example ~/.bashrc file
 ```plaintext
+# Load key
+load_key () {
+  if [ -z "$SSH_AUTH_SOCK" ] ; then
+    eval `ssh-agent -s`
+  fi
+  ssh-add ~/.ssh/RSA
+}
+
+# Connect to the narvi front-end server
+alias connect_to_narvi='ssh -i ~/.ssh/RSA ni@narvi.tut.fi'
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/sgn-data/MLG/nixingyang/Package/miniconda/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
@@ -84,21 +95,7 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 # Enable conda environment
-enable_conda () {
-  conda activate default
-}
-
-# Models and examples built with TensorFlow
-export TENSORFLOW_MODELS_PATH=/sgn-data/MLG/nixingyang/Package/tensorflow_models_1.13.0/research
-export PYTHONPATH=$TENSORFLOW_MODELS_PATH:$TENSORFLOW_MODELS_PATH/slim
-
-# Load key
-load_key () {
-  if [ -z "$SSH_AUTH_SOCK" ] ; then
-    eval `ssh-agent -s`
-  fi
-  ssh-add ~/.ssh/RSA
-}
+alias enable_conda='conda activate default'
 
 # Get an interactive node
 narvi_interactive () {
