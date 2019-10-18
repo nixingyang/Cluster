@@ -40,15 +40,13 @@ ln -s /sgn-data/MLG/nixingyang/Package/cache/keras /home/ni/.keras
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh
 conda config --set auto_activate_base false
+conda config --append channels conda-forge
 conda create --name default python=3
 conda activate default
-conda install keras matplotlib pydot scikit-image scikit-learn tensorflow-gpu (" ".join(sorted("package_list".split(" "))))
-conda install coverage pylint
-conda install -c pytorch cudatoolkit=10.0 ignite pytorch torchvision
-conda install -c conda-forge yacs youtube-dl
-pip install albumentations
-pip uninstall opencv-python-headless
+conda install keras matplotlib pandas pydot scikit-image scikit-learn tensorflow-gpu (" ".join(sorted("package_list".split(" "))))
+conda install coverage pylint yapf
 pip install opencv-python
+pip install albumentations
 conda list
 conda update --all
 conda update -n base -c defaults conda
