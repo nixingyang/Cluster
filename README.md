@@ -95,7 +95,9 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 # Enable conda environment
-alias enable_conda='conda activate default'
+enable_conda () {
+  conda activate default
+}
 
 # Get an interactive node
 narvi_interactive () {
