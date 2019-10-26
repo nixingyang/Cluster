@@ -47,6 +47,7 @@ conda install keras matplotlib pandas pydot scikit-image scikit-learn tensorflow
 conda install coverage pylint yapf
 pip install opencv-python
 pip install albumentations
+pip install -U $(conda list 2>&1 | awk '$4 == "pypi" {print $1}'| tr '\n' ' ')
 conda list
 conda update --all
 conda update -n base -c defaults conda
