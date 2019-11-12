@@ -43,7 +43,7 @@ conda config --set auto_activate_base false
 conda config --append channels conda-forge
 conda create --name default python=3
 conda activate default
-conda install keras matplotlib pandas pydot scikit-image scikit-learn tensorflow-gpu (" ".join(sorted("package_list".split(" "))))
+conda install keras matplotlib pandas pydot scikit-image scikit-learn tensorflow-gpu=1.14 (" ".join(sorted("package_list".split(" "))))
 conda install coverage pylint yapf
 pip install opencv-python
 pip install albumentations
