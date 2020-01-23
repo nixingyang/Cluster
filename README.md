@@ -45,6 +45,7 @@ conda create --name default python=3
 conda activate default
 conda install keras=2.2 matplotlib pandas pydot scikit-image scikit-learn tensorflow-gpu=1 (" ".join(sorted("package_list".split(" "))))
 conda install coverage pylint yapf
+pip install --upgrade git+git://github.com/keras-team/keras-applications.git
 pip install opencv-python
 pip install albumentations
 pip install -U $(conda list 2>&1 | awk '$4 == "pypi" {print $1}'| tr '\n' ' ')
