@@ -68,6 +68,15 @@ In /etc/fstab: ni@narvi.tut.fi:/sgn-data/MLG/nixingyang /home/xingyang/Documents
 From terminal: sudo mount /home/xingyang/Documents/Narvi
 ```
 
+#### Workaround of the importing issue in TensorFlow
+```plaintext
+https://github.com/microsoft/python-language-server/issues/818
+https://github.com/tensorflow/tensorflow/issues/32982#issuecomment-545414061
+mkdir ~/.local/dummy-site-packages
+ln -s ~/.miniconda3/envs/default/lib/python3.7/site-packages/tensorflow_core ~/.local/dummy-site-packages/tensorflow
+"python.autoComplete.extraPaths": ["/home/xingyang/.local/dummy-site-packages"],
+```
+
 #### Example ~/.bashrc file
 ```plaintext
 # Load key
