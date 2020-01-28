@@ -41,10 +41,10 @@ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh
 conda config --set auto_activate_base false
 conda config --append channels conda-forge
-conda create --name default python=3
+conda create --yes --name default python=3
 conda activate default
-conda install keras=2.2 matplotlib pandas pydot scikit-image scikit-learn tensorflow-gpu=1 (" ".join(sorted("package_list".split(" "))))
-conda install coverage pylint yapf
+conda install --yes matplotlib pandas pydot scikit-image scikit-learn tensorflow-gpu=1 (" ".join(sorted("package_list".split(" "))))
+conda install --yes coverage pylint yapf
 pip install --upgrade git+git://github.com/keras-team/keras-applications.git
 pip install opencv-python
 pip install albumentations
