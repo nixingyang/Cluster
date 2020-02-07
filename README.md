@@ -79,6 +79,13 @@ ln -s ~/.miniconda3/envs/default/lib/python3.7/site-packages/tensorflow_core ~/.
 "python.autoComplete.extraPaths": ["/home/xingyang/.local/dummy-site-packages"],
 ```
 
+#### Disable the Preview feature
+```plaintext
+# https://stackoverflow.com/a/38723094
+"workbench.editor.enablePreview": false
+"workbench.editor.enablePreviewFromQuickOpen": false
+```
+
 #### Example ~/.bashrc file
 ```plaintext
 # Load key
