@@ -11,13 +11,11 @@
 #SBATCH --gres=gpu:teslav100:1
 #SBATCH --constraint=gpumem_32
 
-# These commands will be executed on the compute node:
-
-# Load .bashrc file and activate python virtual environment
+# Load ~/.bashrc
 source ~/.bashrc
-enable_conda
 
-# Finally run your job
+# Execute commands
+activate_TensorFlow
 python3 -u solution.py
 
 echo "All done!"
