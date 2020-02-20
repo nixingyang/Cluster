@@ -15,7 +15,7 @@
 source ~/.bashrc
 
 # Execute commands
-activate_TensorFlow
+conda activate TensorFlow
 python3 -u solution.py
 
 echo "All done!"
