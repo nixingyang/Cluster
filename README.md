@@ -52,6 +52,7 @@ pip install opencv-python
 pip install albumentations
 pip install larq larq-zoo zookeeper
 pip install --upgrade git+git://github.com/larq/larq.git
+echo $(conda list 2>&1 | awk '$4 == "pypi" {print $1}'| tr '\n' ' ')
 conda list
 conda update --all
 conda clean --all
