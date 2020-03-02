@@ -50,9 +50,8 @@ pip install --upgrade git+git://github.com/keras-team/keras-applications.git
 pip install image-classifiers
 pip install opencv-python
 pip install albumentations
-pip install larq larq-zoo
+pip install larq larq-zoo==1.0.b2
 pip install --upgrade git+git://github.com/larq/larq.git
-pip install --upgrade git+git://github.com/larq/zoo.git
 echo $(conda list 2>&1 | awk '$4 == "pypi" {print $1}'| tr '\n' ' ')
 conda list
 conda update --all
