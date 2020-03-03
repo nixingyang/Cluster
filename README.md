@@ -46,6 +46,7 @@ conda activate TensorFlow
 conda install --yes pydot tensorflow-gpu=1
 conda install --yes matplotlib pandas scikit-image scikit-learn
 conda install --yes coverage pylint yapf
+conda install --yes faiss-gpu -c pytorch
 pip install --upgrade git+git://github.com/keras-team/keras-applications.git
 pip install image-classifiers
 pip install opencv-python
