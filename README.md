@@ -1,8 +1,9 @@
-### Notes on TCSC Narvi Cluster
+### Notes on TCSC Narvi Cluster and CSC Puhti Cluster
 
 #### Connect to the front end server
 ```plaintext
 ssh -i ~/.ssh/RSA ni@narvi.tut.fi
+ssh -i ~/.ssh/RSA nixingya@puhti.csc.fi
 ```
 
 #### Check the queue status (PD refers to pending, R refers to running)
@@ -11,28 +12,24 @@ squeue --partition gpu
 squeue --user "$USER"
 ```
 
-#### Get an interactive node (check ~hehu/getGpu.sh)
-```plaintext
-srun --job-name="$USER"_"$(basename "$PWD")" --ntasks=1 --cpus-per-task=5 --mem=60G --time=0-8:00:00 --partition=gpu --gres=gpu:teslap100:1 --pty /bin/bash -i
-```
-
-#### Submit a job in batch mode (check ~hehu/gpuBatch.sh and submit.sh)
-```plaintext
-sbatch --job-name="$USER"_"$(basename "$PWD")" submit.sh
-```
-
 #### Cancel a job or all jobs
 ```plaintext
 scancel xxxxxxx
 scancel --user "$USER"
 ```
 
-#### Storage (avoid using the home directory whenever possible)
+#### Storage on Narvi
 ```plaintext
 cd /sgn-data/MLG/nixingyang/Package/cache
 mkdir torch keras
 ln -s /sgn-data/MLG/nixingyang/Package/cache/torch /home/ni/.cache/torch
 ln -s /sgn-data/MLG/nixingyang/Package/cache/keras /home/ni/.keras
+```
+
+#### Storage on Puhti
+```plaintext
+ln -s /users/nixingya/.Package /scratch/project_2000052/nixingya/Package
+ln -s /scratch/project_2000052/nixingya /users/nixingya/Documents/Local\ Storage
 ```
 
 #### Conda Cheat Sheet
@@ -62,8 +59,12 @@ conda deactivate
 #### Mount remote directories on demand (https://wiki.archlinux.org/index.php/SSHFS)
 ```plaintext
 # NB: use each sshfs mount at least once manually while root so the host's signature is added to the /root/.ssh/known_hosts file
-In /etc/fstab: ni@narvi.tut.fi:/sgn-data/MLG/nixingyang /home/xingyang/Documents/Narvi fuse.sshfs noauto,_netdev,users,idmap=user,IdentityFile=/home/xingyang/.ssh/RSA,allow_other,reconnect,follow_symlinks 0 0
-From terminal: sudo mount /home/xingyang/Documents/Narvi
+In /etc/fstab:
+ni@narvi.tut.fi:/sgn-data/MLG/nixingyang /home/xingyang/Documents/Narvi fuse.sshfs noauto,_netdev,users,idmap=user,IdentityFile=/home/xingyang/.ssh/RSA,allow_other,reconnect,follow_symlinks 0 0
+nixingya@puhti.csc.fi:/scratch/project_2000052/nixingya /home/xingyang/Documents/Puhti fuse.sshfs noauto,_netdev,users,idmap=user,IdentityFile=/home/xingyang/.ssh/RSA,allow_other,reconnect,follow_symlinks 0 0
+From terminal:
+sudo mount /home/xingyang/Documents/Narvi
+sudo mount /home/xingyang/Documents/Puhti
 ```
 
 #### Useful commands in ~/.bashrc
@@ -78,26 +79,45 @@ load_key () {
 
 # Connect to other machines
 alias connect_to_narvi='ssh -i ~/.ssh/RSA ni@narvi.tut.fi'
+alias connect_to_puhti='ssh -i ~/.ssh/RSA nixingya@puhti.csc.fi'
 
 # Activate conda environments
 alias activate_TensorFlow='conda activate TensorFlow'
 
 # Get an interactive node
-alias narvi_interactive='srun --job-name="$USER"_"$(basename "$PWD")" --ntasks=1 --cpus-per-task=5 --mem=60G --time=0-8:00:00 --partition=gpu --gres=gpu:teslap100:1 --pty /bin/bash -i'
+cluster_interactive()
+{
+    command="srun --job-name="$USER"_"$(basename "$PWD")" \
+    --ntasks=1 --cpus-per-task=5 --mem=60G --time=0-8:00:00 \
+    --partition=gpu --gres=gpu:teslap100:1 --pty /bin/bash -i"
+    if [ $(hostname -s) != "narvi" ]
+    then
+        command="srun --job-name="$USER"_"$(basename "$PWD")" --account=project_2000052 \
+        --ntasks=1 --cpus-per-task=5 --mem=60G --time=0-8:00:00 \
+        --partition=gpu --gres=gpu:v100:1 --pty /bin/bash -i"
+    fi
+    eval "$command"
+}
 
 # Submit a job in batch mode
-alias narvi_batch='sbatch --job-name="$USER"_"$(basename "$PWD")" submit.sh'
+cluster_batch()
+{
+    submit_script="submit_narvi.sh"
+    if [ $(hostname -s) != "narvi" ]
+    then
+        submit_script="submit_puhti.sh"
+    fi
+    echo "Using $submit_script"
+    command="sbatch --job-name="$USER"_"$(basename "$PWD")" $submit_script"
+    eval "$command"
+}
 ```
 
 #### Additional Information
 ```plaintext
-Watch the introductory video: https://tinyurl.com/TCSC-narvi.
-Send an email to tcsc.tau@tuni.fi.
-
-| GPU Type | GPUs Per Node (* Node Amount) | CPUs Per Node | RAM Per Node |
-| - | - | - | - |
-| Tesla P100 PCIe 12GB | 4 (* 6) | 20 | 251G |
-| Tesla P100 PCIe 16GB | 4 (* 2) | 20 | 251G |
-| Tesla V100 PCIe 16GB | 4 (* 2) | 24 | 376G |
-| Tesla V100 PCIe 32GB | 4 (* 2) | 24 | 754G |
+tcsc.tau@tuni.fi
+servicedesk@csc.fi
+https://tinyurl.com/TCSC-narvi
+https://my.csc.fi/welcome
+https://docs.csc.fi/computing/overview
 ```
