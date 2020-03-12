@@ -113,7 +113,7 @@ cluster_batch()
 }
 ```
 
-#### Additional Information
+#### Additional information
 ```plaintext
 tcsc.tau@tuni.fi
 servicedesk@csc.fi
