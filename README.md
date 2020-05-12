@@ -34,21 +34,23 @@ ln -s /scratch/project_2000052/nixingya /users/nixingya/Documents/Local\ Storage
 
 #### Conda Cheat Sheet
 ```plaintext
+# https://github.com/tensorflow/tensorflow/blob/v2.2.0/tensorflow/tools/dockerfiles/dockerfiles/gpu.Dockerfile
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh
 conda config --set auto_activate_base false
 conda config --append channels conda-forge
-conda create --yes --name TensorFlow python=3
+conda create --yes --name TensorFlow python=3.7
 conda activate TensorFlow
-conda install --yes pydot tensorflow-gpu=1
-conda install --yes matplotlib pandas scikit-image scikit-learn
+conda install --yes cudatoolkit=10.1 cudnn=7.6
+conda install --yes matplotlib pandas pydot scikit-image scikit-learn
 conda install --yes coverage pylint yapf
-conda install --yes faiss-gpu -c pytorch
-pip install --upgrade git+git://github.com/keras-team/keras-applications.git
+conda install --yes faiss-cpu -c pytorch
+pip install tensorflow==2.2
+pip install git+git://github.com/keras-team/keras-applications.git
 pip install image-classifiers
 pip install opencv-python
 pip install albumentations
-pip install larq larq-zoo==1.0b2 larq-compute-engine
+pip install larq larq-zoo larq-compute-engine
 echo $(conda list 2>&1 | awk '$4 == "pypi" {print $1}'| tr '\n' ' ')
 conda list
 conda update --all
