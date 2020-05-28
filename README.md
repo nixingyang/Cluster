@@ -1,25 +1,25 @@
 ### Notes on TCSC Narvi Cluster and CSC Puhti Cluster
 
 #### Connect to the front end server
-```plaintext
+```bash
 ssh -i ~/.ssh/RSA ni@narvi.tut.fi
 ssh -i ~/.ssh/RSA nixingya@puhti.csc.fi
 ```
 
 #### Check the queue status (PD refers to pending, R refers to running)
-```plaintext
+```bash
 squeue --partition gpu
 squeue --user "$USER"
 ```
 
 #### Cancel a job or all jobs
-```plaintext
+```bash
 scancel xxxxxxx
 scancel --user "$USER"
 ```
 
 #### Storage on Narvi
-```plaintext
+```bash
 cd /sgn-data/MLG/nixingyang/Package/cache
 mkdir torch keras
 ln -s /sgn-data/MLG/nixingyang/Package/cache/torch /home/ni/.cache/torch
@@ -27,13 +27,13 @@ ln -s /sgn-data/MLG/nixingyang/Package/cache/keras /home/ni/.keras
 ```
 
 #### Storage on Puhti
-```plaintext
+```bash
 ln -s /users/nixingya/.Package /scratch/project_2000052/nixingya/Package
 ln -s /scratch/project_2000052/nixingya /users/nixingya/Documents/Local\ Storage
 ```
 
 #### Conda Cheat Sheet
-```plaintext
+```bash
 # https://github.com/tensorflow/tensorflow/blob/v2.2.0/tensorflow/tools/dockerfiles/dockerfiles/gpu.Dockerfile
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh
@@ -59,7 +59,7 @@ conda deactivate
 ```
 
 #### Mount remote directories on demand (https://wiki.archlinux.org/index.php/SSHFS)
-```plaintext
+```bash
 # NB: use each sshfs mount at least once manually while root so the host's signature is added to the /root/.ssh/known_hosts file
 In /etc/fstab:
 ni@narvi.tut.fi:/sgn-data/MLG/nixingyang /home/xingyang/Documents/Narvi fuse.sshfs noauto,_netdev,users,idmap=user,IdentityFile=/home/xingyang/.ssh/RSA,allow_other,reconnect,follow_symlinks 0 0
@@ -70,7 +70,7 @@ sudo mount /home/xingyang/Documents/Puhti
 ```
 
 #### Useful commands in ~/.bashrc
-```plaintext
+```bash
 # Load key
 load_key () {
   if [ -z "$SSH_AUTH_SOCK" ] ; then
