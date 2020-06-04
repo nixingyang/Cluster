@@ -41,11 +41,10 @@ conda config --set auto_activate_base false
 conda config --append channels conda-forge
 conda create --yes --name TensorFlow python=3.7
 conda activate TensorFlow
-conda install --yes cudatoolkit=10.1 cudnn=7.6
+conda install --yes tensorflow-gpu=2.2
 conda install --yes matplotlib pandas pydot scikit-image scikit-learn
 conda install --yes coverage pylint yapf
 conda install --yes faiss-cpu -c pytorch
-pip install tensorflow==2.2
 pip install git+git://github.com/keras-team/keras-applications.git
 pip install image-classifiers
 pip install opencv-python
