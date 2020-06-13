@@ -43,7 +43,7 @@ conda create --yes --name TensorFlow python=3.7
 conda activate TensorFlow
 conda install --yes cudatoolkit=10.0 cudnn=7.6
 conda install --yes matplotlib pandas pydot scikit-image scikit-learn
-conda install --yes coverage pylint yapf
+conda install --yes coverage pylint rope yapf
 conda install --yes faiss-gpu -c pytorch
 pip install tensorflow-gpu==1.15.3
 pip install --upgrade git+git://github.com/keras-team/keras-applications.git
