@@ -43,7 +43,7 @@ conda create --yes --name TensorFlow python=3.7
 conda activate TensorFlow
 conda install --yes cudatoolkit=10.0 cudnn=7.6 (For TensorFlow 1.15)
 conda install --yes cudatoolkit=10.1 cudnn=7.6 (For TensorFlow 2.2)
-conda install --yes matplotlib pandas pydot scikit-image scikit-learn
+conda install --yes cython matplotlib pandas pydot scikit-image scikit-learn
 conda install --yes coverage pylint rope yapf
 conda install --yes faiss-gpu -c pytorch
 pip install tensorflow-gpu==1.15.3
