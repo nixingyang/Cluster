@@ -15,7 +15,7 @@
 source ~/.bashrc
 
 # Workaround of OSError (https://github.com/h5py/h5py/issues/1101)
-export HDF5_USE_FILE_LOCKING='FALSE'
+export HDF5_USE_FILE_LOCKING="FALSE"
 
 # Execute commands
 conda activate TensorFlow
