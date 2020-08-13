@@ -39,14 +39,12 @@ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh
 conda config --set auto_activate_base false
 conda config --append channels conda-forge
-conda create --yes --name TensorFlow python=3.7
-conda activate TensorFlow
-conda install --yes cudatoolkit=10.0 cudnn=7.6 (For TensorFlow 1.15)
-conda install --yes cudatoolkit=10.1 cudnn=7.6 (For TensorFlow 2.2)
-conda install --yes cython matplotlib pandas pydot scikit-image scikit-learn
+conda create --yes --name TensorFlow2.2 python=3.7
+conda activate TensorFlow2.2
+conda install --yes cudatoolkit=10.1 cudnn=7.6
+conda install --yes cython matplotlib pandas pydot scikit-learn
 conda install --yes coverage pylint rope yapf
 conda install --yes faiss-gpu -c pytorch
-pip install tensorflow-gpu==1.15.3
 pip install tensorflow==2.2.0
 pip install --upgrade git+git://github.com/keras-team/keras-applications.git
 pip install image-classifiers
