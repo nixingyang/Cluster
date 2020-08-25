@@ -58,6 +58,15 @@ pip install opencv-python
 pip install albumentations
 pip install larq larq-zoo larq-compute-engine
 ```
+```bash
+# https://docs.openvinotoolkit.org/2020.4/openvino_docs_install_guides_installing_openvino_conda.html
+conda create --yes --name OpenVINO2020.4 python=3.7
+conda activate OpenVINO2020.4
+conda install --yes openvino-ie4py-ubuntu18=2020.4 -c intel
+conda install --yes defusedxml networkx
+pip install tensorflow==2.2.0
+pip install test-generator==0.1.1
+```
 
 #### Mount remote directories on demand (https://wiki.archlinux.org/index.php/SSHFS)
 ```bash
