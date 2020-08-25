@@ -64,8 +64,10 @@ conda create --yes --name OpenVINO2020.4 python=3.7
 conda activate OpenVINO2020.4
 conda install --yes openvino-ie4py-ubuntu18=2020.4 -c intel
 conda install --yes defusedxml networkx
+conda install --yes matplotlib tensorboardX tqdm youtube-dl
 pip install tensorflow==2.2.0
 pip install test-generator==0.1.1
+pip install opencv-python
 ```
 
 #### Mount remote directories on demand (https://wiki.archlinux.org/index.php/SSHFS)
