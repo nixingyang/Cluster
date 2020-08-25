@@ -34,11 +34,18 @@ ln -s /scratch/project_2000052/nixingya /users/nixingya/Documents/Local\ Storage
 
 #### Conda Cheat Sheet
 ```bash
-# https://github.com/tensorflow/tensorflow/blob/v2.2.0/tensorflow/tools/dockerfiles/dockerfiles/gpu.Dockerfile
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh
 conda config --set auto_activate_base false
 conda config --append channels conda-forge
+echo $(conda list 2>&1 | awk '$4 == "pypi" {print $1}'| tr '\n' ' ')
+conda list
+conda update --all
+conda clean --all
+conda deactivate
+```
+```bash
+# https://github.com/tensorflow/tensorflow/blob/v2.2.0/tensorflow/tools/dockerfiles/dockerfiles/gpu.Dockerfile
 conda create --yes --name TensorFlow2.2 python=3.7
 conda activate TensorFlow2.2
 conda install --yes cudatoolkit=10.1 cudnn=7.6
@@ -46,16 +53,10 @@ conda install --yes cython matplotlib pandas pydot scikit-learn
 conda install --yes coverage pylint rope yapf
 conda install --yes faiss-gpu -c pytorch
 pip install tensorflow==2.2.0
-pip install --upgrade git+git://github.com/keras-team/keras-applications.git
 pip install image-classifiers
 pip install opencv-python
 pip install albumentations
 pip install larq larq-zoo larq-compute-engine
-echo $(conda list 2>&1 | awk '$4 == "pypi" {print $1}'| tr '\n' ' ')
-conda list
-conda update --all
-conda clean --all
-conda deactivate
 ```
 
 #### Mount remote directories on demand (https://wiki.archlinux.org/index.php/SSHFS)
