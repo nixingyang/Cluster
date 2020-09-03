@@ -37,7 +37,6 @@ ln -s /scratch/project_2000052/nixingya /users/nixingya/Documents/Local\ Storage
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh
 conda config --set auto_activate_base false
-conda config --append channels conda-forge
 echo $(conda list 2>&1 | awk '$4 == "pypi" {print $1}'| tr '\n' ' ')
 conda list
 conda update --all
