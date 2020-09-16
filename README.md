@@ -62,7 +62,7 @@ pip install larq larq-zoo larq-compute-engine
 conda create --yes --name OpenVINO2020.4 python=3.7
 conda activate OpenVINO2020.4
 conda install --yes openvino-ie4py-ubuntu18=2020.4 -c intel
-conda install --yes defusedxml matplotlib networkx tqdm
+conda install --yes defusedxml flask matplotlib networkx tqdm
 conda install --yes tensorboardX youtube-dl -c conda-forge
 pip install tensorflow==2.2.0
 pip install test-generator==0.1.1
