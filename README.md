@@ -66,7 +66,7 @@ conda install --yes defusedxml flask matplotlib networkx tqdm
 conda install --yes tensorboardX youtube-dl -c conda-forge
 pip install tensorflow==2.2.1
 pip install test-generator==0.1.1
-pip install opencv-python
+pip install opencv-python==4.2.0.34
 ```
 
 #### Mount remote directories on demand (https://wiki.archlinux.org/index.php/SSHFS)
