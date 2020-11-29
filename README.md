@@ -59,8 +59,8 @@ pip install larq larq-zoo larq-compute-engine
 ```
 ```bash
 # https://docs.openvinotoolkit.org/2020.4/openvino_docs_install_guides_installing_openvino_conda.html
-conda create --yes --name OpenVINO2020.4 python=3.7
-conda activate OpenVINO2020.4
+conda create --yes --name OpenVINO python=3.7
+conda activate OpenVINO
 conda install --yes openvino-ie4py-ubuntu18=2020.4 -c intel
 conda install --yes defusedxml flask matplotlib networkx scipy tqdm
 conda install --yes tensorboardX youtube-dl -c conda-forge
