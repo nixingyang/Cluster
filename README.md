@@ -50,7 +50,7 @@ conda activate TensorFlow2.2
 conda install --yes cudatoolkit=10.1 cudnn=7.6
 conda install --yes cython matplotlib pandas pydot scikit-learn
 conda install --yes coverage pylint rope yapf
-conda install --yes faiss-gpu -c pytorch
+conda install --yes faiss-cpu -c pytorch
 pip install tensorflow==2.2.1 tensorflow-addons
 pip install image-classifiers
 pip install opencv-python
