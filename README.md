@@ -47,7 +47,7 @@ conda deactivate
 # https://github.com/tensorflow/tensorflow/blob/v2.2.1/tensorflow/tools/dockerfiles/dockerfiles/gpu.Dockerfile
 conda create --yes --name TensorFlow2.2 python=3.7
 conda activate TensorFlow2.2
-conda install --yes cudatoolkit=10.1 cudnn=7.6
+conda install --yes cudatoolkit=10.1 cudnn=7.6 -c nvidia
 conda install --yes cython matplotlib pandas pydot scikit-learn
 conda install --yes coverage pylint rope yapf
 conda install --yes faiss-cpu -c pytorch
