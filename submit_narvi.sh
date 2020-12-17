@@ -18,7 +18,7 @@ source ~/.bashrc
 export HDF5_USE_FILE_LOCKING="FALSE"
 
 # Execute commands
-conda activate TensorFlow2.2
+conda activate TensorFlow2.4
 python3 -u solution.py
 
 echo "All done!"
