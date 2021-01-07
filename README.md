@@ -44,14 +44,14 @@ conda clean --all
 conda deactivate
 ```
 ```bash
-# https://github.com/tensorflow/tensorflow/blob/v2.2.1/tensorflow/tools/dockerfiles/dockerfiles/gpu.Dockerfile
+# https://github.com/tensorflow/tensorflow/blob/v2.2.2/tensorflow/tools/dockerfiles/dockerfiles/gpu.Dockerfile
 conda create --yes --name TensorFlow2.2 python=3.7
 conda activate TensorFlow2.2
 conda install --yes cudatoolkit=10.1 cudnn=7.6 -c nvidia
 conda install --yes cython matplotlib pandas pydot scikit-learn
 conda install --yes coverage pylint rope yapf
 conda install --yes faiss-cpu -c pytorch
-pip install tensorflow==2.2.1 tensorflow-addons
+pip install tensorflow==2.2.2 tensorflow-addons
 pip install image-classifiers
 pip install opencv-python
 pip install albumentations
@@ -64,7 +64,7 @@ conda activate OpenVINO
 conda install --yes openvino-ie4py-ubuntu18=2021.1 -c intel
 conda install --yes defusedxml flask matplotlib networkx pyyaml scipy tqdm
 conda install --yes tensorboardX youtube-dl -c conda-forge
-pip install tensorflow==2.2.1
+pip install tensorflow==2.2.2
 pip install test-generator==0.1.1
 pip install opencv-python==4.2.0.34
 ```
