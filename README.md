@@ -45,11 +45,12 @@ conda deactivate
 ```
 ```bash
 # https://github.com/tensorflow/tensorflow/blob/v2.2.2/tensorflow/tools/dockerfiles/dockerfiles/gpu.Dockerfile
+# https://github.com/tensorflow/tensorflow/issues/43038#issuecomment-688805690
 conda create --yes --name TensorFlow2.2 python=3.7
 conda activate TensorFlow2.2
 conda install --yes cudatoolkit=10.1 cudnn=7.6 -c nvidia
 conda install --yes cython matplotlib pandas pydot scikit-learn
-conda install --yes coverage pylint rope yapf
+conda install --yes coverage pylint=2.4 rope yapf
 conda install --yes faiss-cpu -c pytorch
 pip install tensorflow==2.2.2 tensorflow-addons==0.11.2
 pip install image-classifiers
