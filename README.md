@@ -20,10 +20,8 @@ scancel --user "$USER"
 
 #### Storage on Narvi
 ```bash
-cd /sgn-data/MLG/nixingyang/Package/cache
-mkdir torch keras
-ln -s /sgn-data/MLG/nixingyang/Package/cache/torch /home/ni/.cache/torch
-ln -s /sgn-data/MLG/nixingyang/Package/cache/keras /home/ni/.keras
+mkdir ~/Documents
+ln -s /lustre/ni ~/Documents/Local\ Storage
 ```
 
 #### Storage on Puhti
