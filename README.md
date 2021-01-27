@@ -72,7 +72,7 @@ pip install opencv-python==4.2.0.34
 ```bash
 # NB: use each sshfs mount at least once manually while root so the host's signature is added to the /root/.ssh/known_hosts file
 In /etc/fstab:
-ni@narvi.tut.fi:/sgn-data/MLG/nixingyang /home/xingyang/Documents/Narvi fuse.sshfs noauto,_netdev,users,idmap=user,IdentityFile=/home/xingyang/.ssh/RSA,allow_other,reconnect,follow_symlinks 0 0
+ni@narvi.tut.fi:/lustre/ni /home/xingyang/Documents/Narvi fuse.sshfs noauto,_netdev,users,idmap=user,IdentityFile=/home/xingyang/.ssh/RSA,allow_other,reconnect,follow_symlinks 0 0
 nixingya@puhti.csc.fi:/scratch/project_2000052/nixingya /home/xingyang/Documents/Puhti fuse.sshfs noauto,_netdev,users,idmap=user,IdentityFile=/home/xingyang/.ssh/RSA,allow_other,reconnect,follow_symlinks 0 0
 From terminal:
 sudo mount /home/xingyang/Documents/Narvi
