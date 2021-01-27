@@ -93,9 +93,6 @@ load_key () {
 alias connect_to_narvi='ssh -i ~/.ssh/RSA ni@narvi.tut.fi'
 alias connect_to_puhti='ssh -i ~/.ssh/RSA nixingya@puhti.csc.fi'
 
-# Activate conda environments
-alias activate_TensorFlow='conda activate TensorFlow'
-
 # Get an interactive node
 cluster_interactive()
 {
