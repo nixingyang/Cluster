@@ -81,11 +81,11 @@ pip install opencv-python==4.2.0.34
 ```bash
 # NB: use each sshfs mount at least once manually while root so the host's signature is added to the /root/.ssh/known_hosts file
 In /etc/fstab:
-ni@narvi.tut.fi:/lustre/ni /home/xingyang/Documents/Narvi fuse.sshfs noauto,_netdev,users,idmap=user,IdentityFile=/home/xingyang/.ssh/RSA,allow_other,reconnect,follow_symlinks 0 0
-nixingya@puhti.csc.fi:/scratch/project_2000052/nixingya /home/xingyang/Documents/Puhti fuse.sshfs noauto,_netdev,users,idmap=user,IdentityFile=/home/xingyang/.ssh/RSA,allow_other,reconnect,follow_symlinks 0 0
+ni@narvi.tut.fi:/lustre/ni /home/ni/Documents/Narvi fuse.sshfs noatime,noauto,_netdev,users,idmap=user,IdentityFile=/home/ni/.ssh/RSA,allow_other,reconnect,follow_symlinks 0 0
+nixingya@puhti.csc.fi:/scratch/project_2000052/nixingya /home/ni/Documents/Puhti fuse.sshfs noatime,noauto,_netdev,users,idmap=user,IdentityFile=/home/ni/.ssh/RSA,allow_other,reconnect,follow_symlinks 0 0
 From terminal:
-sudo mount /home/xingyang/Documents/Narvi
-sudo mount /home/xingyang/Documents/Puhti
+sudo mount /home/ni/Documents/Narvi
+sudo mount /home/ni/Documents/Puhti
 ```
 
 ## Useful commands in ~/.bashrc
@@ -99,13 +99,8 @@ load_key () {
   ssh-add ~/.ssh/RSA
 }
 
-# Connect to other machines
-alias connect_to_narvi='ssh -i ~/.ssh/RSA ni@narvi.tut.fi'
-alias connect_to_puhti='ssh -i ~/.ssh/RSA nixingya@puhti.csc.fi'
-
 # Get an interactive node
-cluster_interactive()
-{
+cluster_interactive () {
     command="srun --job-name="$USER"_"$(basename "$PWD")" \
     --ntasks=1 --cpus-per-task=5 --mem=60G --time=0-8:00:00 \
     --partition=gpu --gres=gpu:teslap100:1 --pty /bin/bash -i"
@@ -119,8 +114,7 @@ cluster_interactive()
 }
 
 # Submit a job in batch mode
-cluster_batch()
-{
+cluster_batch () {
     submit_script="submit_narvi.sh"
     if [ $(hostname -s) != "narvi" ]
     then
