@@ -60,7 +60,7 @@ conda install --yes faiss-cpu -c pytorch
 pip install tensorflow==2.2.2 tensorflow-addons==0.11.2
 pip install image-classifiers
 pip install opencv-python
-pip install albumentations
+pip install albumentations --no-binary imgaug,albumentations
 pip install larq larq-zoo larq-compute-engine
 ```
 
