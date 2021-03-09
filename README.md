@@ -49,9 +49,9 @@ conda deactivate
 ```
 
 ```bash
-# https://github.com/tensorflow/tensorflow/blob/v2.2.2/tensorflow/tools/dockerfiles/dockerfiles/gpu.Dockerfile
-# https://github.com/tensorflow/tensorflow/issues/43679
-# https://github.com/tensorflow/tensorflow/issues/43038#issuecomment-688805690
+# cudatoolkit, cudnn: https://github.com/tensorflow/tensorflow/blob/v2.2.2/tensorflow/tools/dockerfiles/dockerfiles/gpu.Dockerfile
+# numpy: https://github.com/tensorflow/tensorflow/issues/43679
+# pylint: https://github.com/tensorflow/tensorflow/issues/43038#issuecomment-688805690
 conda create --yes --name TensorFlow2.2 python=3.7
 conda activate TensorFlow2.2
 conda install --yes cudatoolkit=10.1 cudnn=7.6 -c nvidia
