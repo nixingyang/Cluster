@@ -52,7 +52,7 @@ conda deactivate
 # cudatoolkit, cudnn: https://github.com/tensorflow/tensorflow/blob/v2.2.2/tensorflow/tools/dockerfiles/dockerfiles/gpu.Dockerfile
 # numpy: https://github.com/tensorflow/tensorflow/issues/43679
 # pylint: https://github.com/tensorflow/tensorflow/issues/43038#issuecomment-688805690
-conda create --yes --name TensorFlow2.2 python=3.7
+conda create --yes --name TensorFlow2.2 python=3.8
 conda activate TensorFlow2.2
 conda install --yes cudatoolkit=10.1 cudnn=7.6 -c nvidia
 conda install --yes cython matplotlib numpy=1.18 pandas pydot scikit-learn
@@ -67,7 +67,7 @@ pip install larq larq-zoo larq-compute-engine
 
 ```bash
 # https://docs.openvinotoolkit.org/2021.1/openvino_docs_install_guides_installing_openvino_conda.html
-conda create --yes --name OpenVINO python=3.7
+conda create --yes --name OpenVINO python=3.8
 conda activate OpenVINO
 conda install --yes openvino-ie4py-ubuntu18=2021.1 -c intel
 conda install --yes defusedxml flask matplotlib networkx pyyaml scipy tqdm
