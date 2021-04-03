@@ -50,14 +50,12 @@ conda deactivate
 
 ```bash
 # cudatoolkit, cudnn: https://github.com/tensorflow/tensorflow/blob/v2.4.1/tensorflow/tools/dockerfiles/dockerfiles/gpu.Dockerfile
-# numpy: https://github.com/tensorflow/tensorflow/issues/43679
-# pylint: https://github.com/tensorflow/tensorflow/issues/43038#issuecomment-688805690
 conda create --yes --name TensorFlow2.4 python=3.8
 conda activate TensorFlow2.4
 conda install --yes cudatoolkit=11.0 cudnn=8.0 -c nvidia
-conda install --yes cython matplotlib numpy=1.18 pandas pydot scikit-learn
-conda install --yes coverage pylint=2.4 rope yapf
-conda install --yes faiss-gpu -c pytorch
+conda install --yes cython matplotlib pandas pydot scikit-learn
+conda install --yes coverage pylint rope yapf
+conda install --yes faiss-cpu -c pytorch
 pip install tensorflow==2.4.1 tensorflow-addons
 pip install tf2cv
 pip install opencv-python
