@@ -24,15 +24,13 @@ scancel --user "$USER"
 ## Storage on Narvi
 
 ```bash
-mkdir ~/Documents
 ln -s /lustre/ni ~/Documents/Local\ Storage
 ```
 
 ## Storage on Puhti
 
 ```bash
-ln -s /users/nixingya/.Package /scratch/project_2000052/nixingya/Package
-ln -s /scratch/project_2000052/nixingya /users/nixingya/Documents/Local\ Storage
+ln -s /scratch/project_2000052/nixingya ~/Documents/Local\ Storage
 ```
 
 ## Conda Cheat Sheet
