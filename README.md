@@ -55,12 +55,10 @@ conda activate TensorFlow2.2
 conda install --yes cudatoolkit=10.1 cudnn=7.6 -c nvidia
 conda install --yes cython matplotlib numpy=1.18 pandas pydot scikit-learn
 conda install --yes coverage pylint=2.4 rope yapf
-conda install --yes faiss-gpu -c pytorch
 pip install tensorflow==2.2.2 tensorflow-addons==0.11.2
 pip install tf2cv
 pip install opencv-python
 pip install albumentations --no-binary imgaug,albumentations
-pip install larq larq-zoo larq-compute-engine
 ```
 
 ```bash
