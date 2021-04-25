@@ -24,15 +24,13 @@ scancel --user "$USER"
 ## Storage on Narvi
 
 ```bash
-mkdir ~/Documents
 ln -s /lustre/ni ~/Documents/Local\ Storage
 ```
 
 ## Storage on Puhti
 
 ```bash
-ln -s /users/nixingya/.Package /scratch/project_2000052/nixingya/Package
-ln -s /scratch/project_2000052/nixingya /users/nixingya/Documents/Local\ Storage
+ln -s /scratch/project_2000052/nixingya ~/Documents/Local\ Storage
 ```
 
 ## Conda Cheat Sheet
@@ -55,12 +53,10 @@ conda activate TensorFlow2.4
 conda install --yes cudatoolkit=11.0 cudnn=8.0 -c nvidia
 conda install --yes cython matplotlib pandas pydot scikit-learn
 conda install --yes coverage pylint rope yapf
-conda install --yes faiss-cpu -c pytorch
 pip install tensorflow==2.4.1 tensorflow-addons
 pip install tf2cv
 pip install opencv-python
 pip install albumentations --no-binary imgaug,albumentations
-pip install larq larq-zoo larq-compute-engine
 ```
 
 ```bash
