@@ -61,18 +61,6 @@ pip install opencv-python
 pip install albumentations --no-binary imgaug,albumentations
 ```
 
-```bash
-# https://docs.openvinotoolkit.org/2021.1/openvino_docs_install_guides_installing_openvino_conda.html
-conda create --yes --name OpenVINO python=3.8
-conda activate OpenVINO
-conda install --yes openvino-ie4py-ubuntu18=2021.1 -c intel
-conda install --yes defusedxml flask matplotlib networkx pyyaml scipy tqdm
-conda install --yes tensorboardX youtube-dl -c conda-forge
-pip install tensorflow==2.2.2
-pip install test-generator==0.1.1
-pip install opencv-python==4.2.0.34
-```
-
 ## Mount remote directories on demand (https://wiki.archlinux.org/index.php/SSHFS)
 
 ```bash
